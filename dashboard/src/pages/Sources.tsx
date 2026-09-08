@@ -38,7 +38,7 @@ export default function Sources() {
                   paddingAngle={5}
                   dataKey="value"
                 >
-                  {constituentData.map((entry, index) => (
+                  {constituentData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
