@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { LocationProvider } from './context/LocationContext'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Forecast from './pages/Forecast'
@@ -8,18 +9,20 @@ import './Dashboard.css'
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="app-layout">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/forecast" element={<Forecast />} />
-            <Route path="/sources" element={<Sources />} />
-            <Route path="/dynamics" element={<Dynamics />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+    <LocationProvider>
+      <BrowserRouter>
+        <div className="app-layout">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/forecast" element={<Forecast />} />
+              <Route path="/sources" element={<Sources />} />
+              <Route path="/dynamics" element={<Dynamics />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </LocationProvider>
   )
 }

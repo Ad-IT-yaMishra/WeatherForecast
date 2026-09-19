@@ -5,9 +5,9 @@ export default function Navbar() {
   
   return (
     <nav className={`navbar ${location.pathname === '/' ? 'has-rainbow' : ''}`}>
-      <div className="nav-logo-box">
-        [Team Logo Here]
-      </div>
+      <Link to="/">
+        <img src="/67642.png" alt="Team Logo" className="nav-logo" />
+      </Link>
 
       <ul className="nav-links">
         <li>

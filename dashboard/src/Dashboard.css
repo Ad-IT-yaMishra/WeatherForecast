@@ -46,13 +46,15 @@ body, html, #root {
   100% { background-position: 0% 0; }
 }
 
-.nav-logo-box {
-  border: 1px dashed #64748b;
-  padding: 8px 24px;
-  border-radius: 6px;
-  color: #94a3b8;
-  font-weight: 500;
-  font-size: 0.9rem;
+.nav-logo{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.nav-logo:hover{
+  transform: scale(1.05);
 }
 
 .nav-links {
@@ -313,3 +315,114 @@ body, html, #root {
 .content-card p { color: #cbd5e1; font-size: 1.1rem; margin-bottom: 20px; }
 .content-card ul { color: #cbd5e1; font-size: 1.1rem; padding-left: 20px; }
 .content-card li { margin-bottom: 12px; }
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.location-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(30, 41, 59, 0.8);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.location-selector label {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.location-dropdown {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.location-dropdown:focus {
+  border-color: #3b82f6;
+}
+
+.sources-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.map-card-full {
+  width: 100%;
+}
+
+.sources-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.metric-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.metric-name {
+  color: #f8fafc;
+  font-weight: 500;
+}
+
+.metric-values {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.metric-qty {
+  color: #94a3b8;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.metric-pct {
+  color: #f8fafc;
+  font-weight: bold;
+  background: #334155;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  width: 60px;
+  text-align: center;
+}
