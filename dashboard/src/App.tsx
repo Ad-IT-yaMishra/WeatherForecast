@@ -1,28 +1,28 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { LocationProvider } from './context/LocationContext'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Forecast from './pages/Forecast'
-import Sources from './pages/Sources'
-import Dynamics from './pages/Dynamics'
+import AirQuality from './pages/AirQuality'
+import Hotspots from './pages/Hotspots'
+import AboutUs from './pages/AboutUs'
 import './Dashboard.css'
 
 export default function App() {
   return (
     <LocationProvider>
-      <BrowserRouter>
-        <div className="app-layout">
-          <Navbar />
-          <main className="main-content">
+      <Router>
+        <div className="app-container">
+          <div className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/forecast" element={<Forecast />} />
-              <Route path="/sources" element={<Sources />} />
-              <Route path="/dynamics" element={<Dynamics />} />
+              <Route path="/air-quality" element={<AirQuality />} />
+              <Route path="/hotspots" element={<Hotspots />} />
+              <Route path="/about" element={<AboutUs />} />
             </Routes>
-          </main>
+          </div>
+          <Navbar />
         </div>
-      </BrowserRouter>
+      </Router>
     </LocationProvider>
   )
 }
