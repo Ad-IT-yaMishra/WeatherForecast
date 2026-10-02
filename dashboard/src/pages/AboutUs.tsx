@@ -1,9 +1,6 @@
-import TopHeader from '../components/TopHeader'
-
 export default function AboutUs() {
   return (
     <div className="page-wrapper">
-      <TopHeader />
       <div className="glass-card about-card">
         <h1 className="about-title">Delhi NCR Air Pollution Observatory</h1>
         <p className="about-subtitle">Coupled Meteorology-Chemistry Forecasting & Source Apportionment</p>

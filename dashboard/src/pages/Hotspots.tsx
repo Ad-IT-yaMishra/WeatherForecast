@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { LocationContext, STATION_COORDS } from '../context/LocationContext'
-import TopHeader from '../components/TopHeader'
 
 const defaultIcon = new L.Icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -26,8 +25,6 @@ export default function Hotspots() {
 
   return (
     <div className="page-wrapper">
-      <TopHeader />
-      
       <div className="glass-card map-container-glass">
         <div className="widget-title"><span className="icon">🔥</span> Active Fire Hotspots & Sources</div>
         <div className="map-frame">
