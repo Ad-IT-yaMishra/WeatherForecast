@@ -6,26 +6,29 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-body, html, #root {
+html, body, #root {
   width: 100%;
   min-height: 100vh;
-  background-color: #0f172a;
-  color: #f8fafc;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 
-.app-container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  min-height: 100vh;
+body {
   background-color: #0f172a;
   background-image: url('/src/assets/bgImage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: transparent;
 }
 
 .vayu-logo-box {
@@ -109,11 +112,13 @@ body, html, #root {
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   animation: fadeIn 0.4s ease-out;
   width: 100%;
+  max-width: 100vw;
   margin: 0 auto;
-  padding: 100px 20px 110px 20px;
+  padding: 100px 16px 110px 16px;
+  box-sizing: border-box;
 }
 
 @keyframes fadeIn {
@@ -125,9 +130,11 @@ body, html, #root {
   background: rgba(0, 0, 0, 0.45);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 20px;
+  padding: 16px;
   box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.3);
   width: 100%;
+  box-sizing: border-box;
+  overflow: visible; 
 }
 
 .glass-pill {
@@ -138,6 +145,8 @@ body, html, #root {
 }
 
 .header-widget-row {
+  position: relative;
+  z-index: 900;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -154,7 +163,7 @@ body, html, #root {
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -195,7 +204,7 @@ body, html, #root {
   flex: 1;
   text-align: left;
   padding-left: 12px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #fef08a;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
@@ -220,10 +229,10 @@ body, html, #root {
   border: 1px solid rgba(250, 204, 21, 0.4);
   border-radius: 16px;
   overflow: hidden;
-  z-index: 50;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 
 .custom-option {
@@ -283,27 +292,27 @@ body, html, #root {
 .weather-side-widgets {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 .mini-widget {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
+  padding: 14px;
 }
 
 .mini-icon {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .mini-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .mini-val {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -311,7 +320,7 @@ body, html, #root {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 16px;
   color: white;
@@ -325,8 +334,8 @@ body, html, #root {
 
 .hourly-dense-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 8px;
   width: 100%;
 }
 
@@ -340,23 +349,23 @@ body, html, #root {
 }
 
 .hour-time {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
 }
 
 .hour-icon {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .hour-temp {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
 .hour-aqi-pill {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   background: rgba(0, 0, 0, 0.4);
   padding: 2px 6px;
@@ -386,17 +395,65 @@ body, html, #root {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 8px 8px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  gap: 4px;
   flex: 1; 
+}
+
+.week-day-tag {
+  font-weight: 700;
+  width: 32px;
+}
+
+.week-date-tag {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+}
+
+.week-icon-tag {
+  font-size: 1.1rem;
+}
+
+.week-condition-tag {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+  flex: 1;
+  padding-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.temp-range-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.temp-low {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+.temp-high {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.range-indicator {
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #60a5fa, #f59e0b);
 }
 
 .pollutants-grid-home {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
   flex: 1; 
 }
 
@@ -413,51 +470,6 @@ body, html, #root {
   gap: 12px;
 }
 
-.week-day-tag {
-  font-weight: 700;
-  width: 36px;
-}
-
-.week-date-tag {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.8rem;
-  width: 60px;
-}
-
-.week-icon-tag {
-  font-size: 1.2rem;
-}
-
-.week-condition-tag {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.82rem;
-  flex: 1;
-  padding-left: 10px;
-}
-
-.temp-range-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.temp-low {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-}
-
-.temp-high {
-  font-weight: 700;
-  font-size: 0.85rem;
-}
-
-.range-indicator {
-  width: 45px;
-  height: 4px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #60a5fa, #f59e0b);
-}
-
 .indicator-box {
   display: flex;
   flex-direction: column;
@@ -467,17 +479,17 @@ body, html, #root {
 }
 
 .indicator-title {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
 .indicator-value {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
 .indicator-status {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
@@ -502,12 +514,12 @@ body, html, #root {
 }
 
 .aqi-left-label {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.95);
   letter-spacing: 2px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .aqi-gauge-container {
@@ -515,12 +527,12 @@ body, html, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 180px;
+  width: 160px;
 }
 
 .gauge-svg {
   width: 100%;
-  height: 90px;
+  height: 80px;
   overflow: visible;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
@@ -536,7 +548,7 @@ body, html, #root {
 }
 
 .gauge-val-small {
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   font-weight: 800;
   line-height: 1;
   margin-bottom: 4px;
@@ -544,7 +556,7 @@ body, html, #root {
 }
 
 .gauge-status {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
@@ -575,15 +587,15 @@ body, html, #root {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  gap: 12px;
+  padding: 16px;
+  gap: 10px;
 }
 
 .strip-item {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .p-name {
@@ -650,7 +662,7 @@ body, html, #root {
 }
 
 .about-title {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 800;
   margin-bottom: 6px;
   color: white;
@@ -658,7 +670,7 @@ body, html, #root {
 
 .about-subtitle {
   color: #93c5fd;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 28px;
 }
@@ -668,14 +680,14 @@ body, html, #root {
 }
 
 .about-section h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #60a5fa;
   margin-bottom: 10px;
 }
 
 .about-section p {
   line-height: 1.7;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.92);
   margin-bottom: 12px;
 }
@@ -688,6 +700,7 @@ body, html, #root {
 
 .about-list li {
   margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
 .protocols-grid {
@@ -719,7 +732,7 @@ body, html, #root {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
@@ -734,35 +747,32 @@ body, html, #root {
 }
 
 @media (max-width: 767px) {
-  .app-container {
-    background-image: none;
-    background-color: transparent;
+  body {
+    background-attachment: scroll; 
   }
   
-  .app-container::before {
+  body::before {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #0f172a;
-    background-image: url('/bgimage.jpg');
+    background-image: url('/src/assets/bgImage.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
-    pointer-events: none;
+    z-index: -999;
   }
 
   .header-widget-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
   }
   
   .location-select-wrapper {
-    width: 100%;
+    min-width: 100%;
   }
 }
 
@@ -770,6 +780,10 @@ body, html, #root {
   .page-wrapper {
     padding: 130px 40px 60px 40px; 
     max-width: 1200px;
+  }
+  
+  .glass-card {
+    padding: 24px; 
   }
 
   .home-top-grid, .aqi-top-grid {
@@ -795,6 +809,14 @@ body, html, #root {
 
   .dynamics-indicators-grid-2x4 {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .weekly-row-item {
+    padding: 8px 12px; 
+  }
+
+  .range-indicator {
+    width: 45px; 
   }
   
   .vayu-nav-bar {
