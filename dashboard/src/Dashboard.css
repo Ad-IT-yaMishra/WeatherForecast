@@ -15,10 +15,12 @@ body, html, #root {
 }
 
 .app-container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 100vh;
   background-color: #0f172a;
-  background-image: url('/src/assets/bgImage.jpg'); 
+  background-image: url('/src/assets/bgImage.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -29,7 +31,7 @@ body, html, #root {
 .vayu-logo-box {
   position: absolute;
   top: 24px;
-  left: 24px;
+  left: 32px; 
   display: flex;
   align-items: center;
   gap: 12px;
@@ -56,21 +58,22 @@ body, html, #root {
 
 .vayu-nav-bar {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  height: 75px;
-  background: rgba(15, 23, 42, 0.85);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 85px; 
+  padding-bottom: env(safe-area-inset-bottom, 10px); 
+  background: rgba(15, 23, 42, 0.95); 
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 24px;
+  border-radius: 24px 24px 0 0; 
   border: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: none;
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.6); 
 }
 
 .vayu-nav-link {
@@ -103,19 +106,14 @@ body, html, #root {
   border: 1px solid rgba(96, 165, 250, 0.3);
 }
 
-.main-content {
-  flex: 1;
-  padding: 110px 24px 100px 24px;
-  max-width: 100%;
-  width: 100%;
-  margin: 0 auto;
-}
-
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
   animation: fadeIn 0.4s ease-out;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 20px 110px 20px;
 }
 
 @keyframes fadeIn {
@@ -145,7 +143,10 @@ body, html, #root {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 24px;
+  padding: 0 0 10px 0; 
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .datetime-row-left {
@@ -237,16 +238,6 @@ body, html, #root {
 
 .custom-option:hover, .custom-option.active {
   background: rgba(250, 204, 21, 0.2);
-}
-
-@media (max-width: 767px) {
-  .header-widget-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .location-select-wrapper {
-    width: 100%;
-  }
 }
 
 .home-top-grid {
@@ -742,13 +733,43 @@ body, html, #root {
   font-weight: 700;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
+  .app-container {
+    background-image: none;
+    background-color: transparent;
+  }
+  
+  .app-container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0f172a;
+    background-image: url('/bgimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    pointer-events: none;
+  }
 
-  .main-content {
-    padding-top: 110px;
-    padding-bottom: 40px;
-    max-width: 1200px;
+  .header-widget-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .location-select-wrapper {
     width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding: 130px 40px 60px 40px; 
+    max-width: 1200px;
   }
 
   .home-top-grid, .aqi-top-grid {
@@ -762,7 +783,7 @@ body, html, #root {
   .protocols-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-
+  
   .hourly-dense-grid {
     grid-template-columns: repeat(12, 1fr);
     gap: 8px;
@@ -785,6 +806,7 @@ body, html, #root {
     transform: none;
     width: auto;
     height: auto;
+    padding-bottom: 0;
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
