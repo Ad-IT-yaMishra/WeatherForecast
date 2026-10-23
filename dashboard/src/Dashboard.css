@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -802,16 +802,6 @@ body {
 }
 
 @media (max-width: 767px) {
-
-  .vayu-logo-box {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    justify-content: flex-start;
-  }
-
   body {
     background-attachment: scroll; 
   }
@@ -830,18 +820,29 @@ body {
     z-index: -999;
   }
 
-  .header-widget-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  
-  .location-select-wrapper {
-    min-width: 100%;
+  .vayu-logo-box {
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 9999 !important;
+    display: flex !important;
   }
 
   .page-wrapper {
-    padding: 100px 16px 110px 16px;
+    padding: 100px 16px 110px 16px !important;
+  }
+
+  .header-widget-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px !important; 
+    padding-top: 10px !important; 
+  }
+
+  .location-select-wrapper {
+    width: 100% !important;
+    padding: 12px 20px !important;
   }
 }
 
