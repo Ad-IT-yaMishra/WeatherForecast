@@ -7,27 +7,22 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.png'],
+      includeAssets: ['logo.png'], // Add your background or other asset names here if needed
       manifest: {
-        name: 'Delhi NCR Air Pollution Dashboard',
-        short_name: 'AQI Forecast',
-        description: 'Coupled Weather & Emission Predictive Dashboard',
+        name: 'VayuCast Delhi NCR',
+        short_name: 'VayuCast',
+        description: 'Real-time Air Quality & Weather Monitoring',
         theme_color: '#0f172a',
         background_color: '#0f172a',
         display: 'standalone',
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: '/logo-192x192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
+            src: '/logo-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'

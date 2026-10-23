@@ -17,7 +17,6 @@ export default function App() {
             <Route path="/air-quality" element={<AirQuality />} />
             <Route path="/hotspots" element={<Hotspots />} />
             <Route path="/about" element={<AboutUs />} />
-            {/* Catch-all redirect to fix PWA blank screen */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <Navbar />
