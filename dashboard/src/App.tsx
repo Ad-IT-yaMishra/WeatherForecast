@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import './Dashboard.css' // <--- THIS WAS THE MISSING LINE! 
+import './Dashboard.css' 
 import Home from './pages/Home'
 import AirQuality from './pages/AirQuality'
 import Hotspots from './pages/Hotspots'

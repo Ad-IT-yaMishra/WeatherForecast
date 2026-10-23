@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.png'], // Add your background or other asset names here if needed
+      includeAssets: ['67642-192.png', '67642-512.png'], 
       manifest: {
         name: 'VayuCast Delhi NCR',
         short_name: 'VayuCast',
@@ -17,12 +17,12 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: '/logo-192x192.png',
+            src: '/67642-192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/logo-512x512.png',
+            src: '/67642-512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'

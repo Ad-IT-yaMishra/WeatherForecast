@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <>
       <div className="vayu-logo-box">
-        <img src="/67642.png" alt="VayuCast Logo" />
+        <img src="/67642-192.png" alt="VayuCast Logo" />
         <span>VayuCast</span>
       </div>
 

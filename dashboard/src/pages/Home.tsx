@@ -86,7 +86,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Side-by-side Layout on Desktop */}
       <div className="home-bottom-split">
         <div className="glass-card weekly-card-compact">
           <div className="widget-title">

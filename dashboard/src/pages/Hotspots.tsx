@@ -28,8 +28,12 @@ export default function Hotspots() {
       <div className="glass-card map-container-glass">
         <div className="widget-title"><span className="icon">🔥</span> Active Fire Hotspots & Sources</div>
         <div className="map-frame">
-          <MapContainer center={[28.6139, 77.2090]} zoom={10} style={{ height: '100%', width: '100%' }}>
-            <TileLayer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png" />
+          <MapContainer center={[28.6139, 77.2090]} zoom={9} style={{ height: '100%', width: '100%' }}>
+
+            <TileLayer 
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+              className="dark-map-tiles"
+            />
             <Circle center={[29.8, 76.4]} radius={20000} pathOptions={{ color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.4 }}>
                <Popup>Haryana Harvesting Fires</Popup>
             </Circle>
@@ -40,7 +44,7 @@ export default function Hotspots() {
               <Marker key={name} position={getCoords(name, index)} icon={defaultIcon}>
                 <Popup><strong style={{ color: '#000' }}>{name}</strong></Popup>
               </Marker>
-            ))}
+          ))}  
           </MapContainer>
         </div>
       </div>
