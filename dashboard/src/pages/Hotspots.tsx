@@ -28,23 +28,34 @@ export default function Hotspots() {
       <div className="glass-card map-container-glass">
         <div className="widget-title"><span className="icon">🔥</span> Active Fire Hotspots & Sources</div>
         <div className="map-frame">
-          <MapContainer center={[28.6139, 77.2090]} zoom={9} style={{ height: '100%', width: '100%' }}>
-
-            <TileLayer 
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+          <MapContainer center={[28.6139, 77.2090]} zoom={7.5} style={{ height: '100%', width: '100%' }}>
+          
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               className="dark-map-tiles"
             />
-            <Circle center={[29.8, 76.4]} radius={20000} pathOptions={{ color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.4 }}>
-               <Popup>Haryana Harvesting Fires</Popup>
+
+            <Circle 
+              center={[29.8, 76.4]} 
+              radius={35000} 
+              pathOptions={{ color: '#facc15', fillColor: '#facc15', fillOpacity: 0.4 }}
+            >
+              <Popup>Haryana Harvesting Fires</Popup>
             </Circle>
-            <Circle center={[30.1, 76.8]} radius={15000} pathOptions={{ color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.4 }}>
-               <Popup>Punjab Biomass Burning</Popup>
+
+            <Circle 
+              center={[30.1, 76.8]} 
+              radius={45000} 
+              pathOptions={{ color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.4 }}
+            >
+              <Popup>Punjab Biomass Burning</Popup>
             </Circle>
+
             {locations.map((name, index) => (
               <Marker key={name} position={getCoords(name, index)} icon={defaultIcon}>
                 <Popup><strong style={{ color: '#000' }}>{name}</strong></Popup>
               </Marker>
-          ))}  
+            ))}
           </MapContainer>
         </div>
       </div>
