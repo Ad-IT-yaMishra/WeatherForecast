@@ -804,8 +804,8 @@ body {
 @media (max-width: 767px) {
 
   body::before {
-    background-size: cover !important;
-    background-position: 70% center !important; 
+    background-size: auto 100% !important;
+    background-position: center center !important; 
   }
 
   .vayu-logo-box {
